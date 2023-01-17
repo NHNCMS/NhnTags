@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NhnTags.DataModel\NhnTags.DataModel.csproj" />
+      <ProjectReference Include="..\NhnTags.Module.Shared.Extensions\NhnTags.Module.Shared.Extensions.csproj" />
+      <ProjectReference Include="..\NhnTags.Module.Tags.Extensions\NhnTags.Module.Tags.Extensions.csproj" />
+    </ItemGroup>
+
+</Project>
