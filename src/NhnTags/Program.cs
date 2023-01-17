@@ -25,7 +25,7 @@ app.UseSwagger(s =>
 });
 app.UseSwaggerUI(s =>
 {
-    s.SwaggerEndpoint("/documentation/v1/documentation.json", "NhN Tags Api");
+    s.SwaggerEndpoint($"{builder.Configuration["SwaggerPrefix"]}/documentation/v1/documentation.json", "NhN Tags Api");
     s.RoutePrefix = "documentation";
 });
 

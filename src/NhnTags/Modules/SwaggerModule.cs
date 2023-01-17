@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
+using NhnTags.Filters;
 
 namespace NhnTags.Modules;
 
@@ -16,7 +17,7 @@ public sealed class SwaggerModule : IModule
     public IServiceCollection RegisterModule(WebApplicationBuilder builder)
     {
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen(SetSwaggerGenOptions);
+        builder.Services.AddSwaggerGen(option => SetSwaggerGenOptions(option,builder.Configuration));
 
         return builder.Services;
     }
@@ -26,7 +27,7 @@ public sealed class SwaggerModule : IModule
         return endpoints;
     }
 
-    private void SetSwaggerGenOptions(SwaggerGenOptions options)
+    private void SetSwaggerGenOptions(SwaggerGenOptions options,IConfiguration configuration)
     {
         options.OperationFilter<SecurityRequirementsOperationFilter>();
         options.SwaggerDoc("v1", new OpenApiInfo
@@ -43,6 +44,7 @@ public sealed class SwaggerModule : IModule
             BearerFormat = "JWT",
             Description = "Please enter a valid token"
         });
+        options.DocumentFilter<SwaggerFilter>(configuration["SwaggerPrefix"]);
 
         ConfigureXmlComments(options);
     }
