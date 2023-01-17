@@ -7,9 +7,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["NhnTags.csproj", "NhnTags/"]
+COPY ["NhnTags/NhnTags.csproj", "NhnTags/"]
 RUN dotnet restore "NhnTags/NhnTags.csproj"
-COPY . BrewUpApiTemplate/
+COPY . NhnTags/
 WORKDIR "/src/NhnTags"
 RUN dotnet build "NhnTags.csproj" -c Release -o /app/build
 
