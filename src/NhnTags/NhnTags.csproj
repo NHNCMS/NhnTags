@@ -21,6 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\NhnTags.Broker.Kafka\NhnTags.Broker.Kafka.csproj" />
 	  <ProjectReference Include="..\NhnTags.DataModel.MongoDb\NhnTags.DataModel.MongoDb.csproj" />
 	  <ProjectReference Include="..\NhnTags.Module.Tags\NhnTags.Module.Tags.csproj" />
 	  <ProjectReference Include="..\NhnTags.Shared\NhnTags.Shared.csproj" />

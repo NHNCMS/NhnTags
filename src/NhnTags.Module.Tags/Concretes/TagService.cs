@@ -1,4 +1,6 @@
-﻿using NhnTags.DataModel.Abstracts;
+﻿using NhnTags.Broker.Kafka;
+using NhnTags.Broker.Kafka.Messages;
+using NhnTags.DataModel.Abstracts;
 using NhnTags.DataModel.Models;
 using NhnTags.Module.Tags.Abstracts;
 using NhnTags.Module.Tags.Extensions.Dtos;
@@ -9,9 +11,12 @@ internal sealed class TagService : ITagService
 {
     private readonly IPersister<TagModel> _persister;
 
-    public TagService(IPersister<TagModel> persister)
+    private readonly IServiceBus _bus;
+
+    public TagService(IPersister<TagModel> persister, IServiceBus bus)
     {
         _persister = persister;
+        _bus = bus;
     }
 
     public async Task<TagDto> GetTag(string tagId)
@@ -24,7 +29,8 @@ internal sealed class TagService : ITagService
     {
         var tagModel = TagModel.CreateTagModel(newTagWithoutId);
         await _persister.Insert(tagModel);
-
+        var tagSubmitted = new TagSubmitted(Guid.NewGuid(), Guid.NewGuid(), tagModel.Id, tagModel.Description);
+        await _bus.Publish(tagSubmitted, CancellationToken.None);
         return tagModel.Id;
     }
 

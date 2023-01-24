@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhnTags.Shared", "NhnTags.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhnTags.Module.Shared.Extensions", "NhnTags.Module.Shared.Extensions\NhnTags.Module.Shared.Extensions.csproj", "{4917131D-7A42-495E-B7D4-B56F56262C31}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kafka", "Kafka", "{8326E942-9541-42C5-BF16-54D0B0A0E23C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnTags.Broker.Kafka", "NhnTags.Broker.Kafka\NhnTags.Broker.Kafka.csproj", "{3D4E1706-C699-46FA-ABD7-05E416F67DC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{4917131D-7A42-495E-B7D4-B56F56262C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4917131D-7A42-495E-B7D4-B56F56262C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4917131D-7A42-495E-B7D4-B56F56262C31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4E1706-C699-46FA-ABD7-05E416F67DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4E1706-C699-46FA-ABD7-05E416F67DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4E1706-C699-46FA-ABD7-05E416F67DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4E1706-C699-46FA-ABD7-05E416F67DC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,8 @@ Global
 		{B57C01CC-B062-429F-B492-68C3DEE2EA28} = {65B2DB45-EA12-45A5-9F52-C627DFC8B1E1}
 		{FD038FF9-C6CC-4FEA-A40B-3983BFDA9560} = {8CCB4F57-9E4B-4D1B-B29A-EA16B3A6C0ED}
 		{4917131D-7A42-495E-B7D4-B56F56262C31} = {8CCB4F57-9E4B-4D1B-B29A-EA16B3A6C0ED}
+		{8326E942-9541-42C5-BF16-54D0B0A0E23C} = {D736EB4F-E2C4-46C8-BA39-03A7C20CE88F}
+		{3D4E1706-C699-46FA-ABD7-05E416F67DC9} = {8326E942-9541-42C5-BF16-54D0B0A0E23C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34227528-3A8E-4FBD-A4D3-8B2708B14744}
