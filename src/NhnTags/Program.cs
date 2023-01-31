@@ -21,11 +21,11 @@ app.MapEndpoints();
 // Configure the HTTP request pipeline.
 app.UseSwagger(s =>
 {
-    s.RouteTemplate = "documentation/{documentName}/documentation.json";
+    s.RouteTemplate = "tags/documentation/{documentName}/documentation.json";
 });
 app.UseSwaggerUI(s =>
 {
-    s.SwaggerEndpoint($"{builder.Configuration["SwaggerPrefix"]}/documentation/v1/documentation.json", "NhN Tags Api");
+    s.SwaggerEndpoint($"tags/documentation/v1/documentation.json", "NhN Tags Api");
     s.RoutePrefix = "documentation";
 });
 
