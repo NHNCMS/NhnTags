@@ -13,12 +13,12 @@ public static class KafkaHelper
 {
     public static IServiceCollection AddKafka(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("Kafka:ConnectionString");
-        var kafkaConfig = new KafkaConfiguration(connectionString);
 
-        var mongoDbParameter = services.BuildServiceProvider()
-            .GetRequiredService<IOptions<AppSettings>>()
-            .Value.MongoDbParameters;
+        var parameters = services.BuildServiceProvider()
+            .GetRequiredService<IOptions<AppSettings>>().Value;
+
+        var mongoDbParameter = parameters.MongoDbParameters;
+        var kafkaConfig = new KafkaConfiguration(parameters.KafkaParameters.ConnectionString);
 
         var mongoCfg = new MongoConfiguration(mongoDbParameter.ConnectionString,
             mongoDbParameter.DatabaseName);
@@ -30,7 +30,6 @@ public static class KafkaHelper
                 {
                     builder.UseMessageNamingPolicy<TagSubmitted>(() => new QueueReferences("tags", "tags.dead"));
                 });
-
 
             cfg.UseMongoPersistence(mongoCfg);
         });

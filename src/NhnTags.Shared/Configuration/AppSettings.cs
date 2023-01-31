@@ -7,6 +7,14 @@ public class AppSettings
     public TokenParameters TokenParameters { get; set; } = new();
     public PrincipalSettings PrincipalSettings { get; set; } = new();
     public MongoDbParameter MongoDbParameters { get; set; } = new();
+
+    public KafkaParameter KafkaParameters { get; set; } = new();
+
+}
+
+public class KafkaParameter
+{
+    public string ConnectionString { get; set; } = string.Empty;
 }
 
 public class TokenParameters
