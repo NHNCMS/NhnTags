@@ -31,7 +31,7 @@ To install and run the microservice, follow these steps:
     docker run -p 5000:5000 -d nhn/tags-microservice:latest
 
 ## Contributing
-Contributions to the microservice are welcome. 💕
+Contributions to the microservice are welcome.
 
 ## License
 This microservice is released under the MIT license.
